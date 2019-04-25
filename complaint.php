@@ -1,11 +1,6 @@
 <?php
-include 'dbconnect.php';
+include('dbconnect.php');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Home</title>
 <style type="text/css">
 #apDiv1 {
 	position: absolute;
@@ -89,7 +84,7 @@ include 'dbconnect.php';
 }
 </style>
 </head>
-<body background="images/i1.jpg">
+<body background="images/i2.jpg">
 <!--<div id="apDiv1">
   <div id="apDiv6">
     <div id="apDiv7">
@@ -118,7 +113,8 @@ include 'dbconnect.php';
   <div id="apDiv4">Welcome 
     <div id="apDiv5"></div>
   </div-->
- <div id="apDiv1">
+ 
+  <div id="apDiv3">
     <table width="1290" height="56" border="0">
       <tr>
         <td width="81" bgcolor="#D6D6D6"><a style="text-decoration:none;" href="#">Home</a></td>
@@ -126,49 +122,28 @@ include 'dbconnect.php';
         <td width="182" bgcolor="#D6D6D6"><a style="text-decoration:none;" href="signup.php">Sign Up</a></td>
         <td width="154" bgcolor="#D6D6D6"><a style="text-decoration:none;" href="complaint.php">Complaint</a></td>
         <td width="218" bgcolor="#D6D6D6"><a style="text-decoration:none;" href="gallery.php">Gallery</a></td>
-        <td width="102" bgcolor="#D6D6D6"><a style="text-decoration:none;" href="login.php">License</a></td>
+        <td width="102" bgcolor="#D6D6D6"><a style="text-decoration:none;" href="license1.php">License</a></td>
         <td width="166" bgcolor="#D6D6D6"><a style="text-decoration:none;" href="login.php">Vehicle Registration</a></td>
         
       </tr>
     </table>
   </div>
-</div>
-<br><br><br><br><br>
-    <div class="student-w3ls">
-      <div class="container">
-        <div class="student-grids">
-          <div class="col-md-6 student-grid">
-			<form  method="post">
+	<!--header-->
+  <div id="apDiv4">
+  <h3><title>Complaint</title></h3>
+			<form  name="frm" method="post" action="complaint_entry.php">
 				<br><br><br>
-				Username:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="uname" ><br><br>
-				Compliant Description:<textarea rows="5" cols="50" name="cdesc" ></textarea><br><br><br>
-				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit"  name="submit" onclick="return otp()" class="btn btn-primary">Submit</button>
+				Username: <input type="text" name="u_name" ><br><br>
+				Compliant Description:<br>&emsp;&emsp;&emsp; <textarea rows="5" cols="50" name="cdes" ></textarea><br><br>
+				&emsp;&emsp;&emsp;<button type="submit"  name="submit" onclick="return otp()" class="btn btn-primary">Submit</button>
 			</form>
     </div>
-<div class="clearfix"></div>
+
+<div id="apDiv2">RTO Management System</div>
+</div>
+    <div class="clearfix"></div>
   </div>
 </div>
 </div>
-<!--student-->
-</div>
-<!--content-->
-<!--footer-->
-
 </body>
 </html>
-<?php
-					if(isset($_POST['submit']))
-					{
-						$q1=$_POST['aad'];
-						$com=$_POST['cdesc'];
-						$date = date('Y-m-d');
-						echo $date;
-						$sql="INSERT INTO complaint(aadhar,cdate,cdesc) VALUES('$q1','$date','$com')";
-
-						$results2=mysqli_query($conn,$sql);
-					if(!$results2)
-					{
-						echo "<script>alert(' unsuccessfull')</script>";
-					}
-					}
-				?>
